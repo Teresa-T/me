@@ -1,9 +1,6 @@
 name: Teresa Tan
 studentNumber: z5209192
-officialEmail: shaojun17700@gmail.com
 officialEmail: Teresa.Tan #What's your UNSW email address?
-contactEmail:
-  firstBit: Teresa.Tan  # this avoids spam, the @ is implied
-  otherBit: 
+contactEmail: 
   firstBit: shaojun17700
   otherBit: gmail.com

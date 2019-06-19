@@ -7,8 +7,13 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
-
+    #modulo % gives the remainder of the number on the left divided by the right
+    remainder = a_number%2
+    #if the remainder is 0, then it must be even, therefore returns False
+    if remainder == 0:
+        return False
+    else : #because a_number is defined as an integer, this is sufficient to prove for Odd.
+        return True
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -25,7 +30,14 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements. 
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+    #Using conditional formatting 'and', shortens the Boolean expressions to one line
+    if moves==True and should_move==False:
+        object="Duct Tape"
+    elif moves==False and should_move==True: #elif = else if (adds a condition)
+        object="WD-40"
+    else :
+        object="No Problem"
+    return object
 
 
 def loops_1a():
@@ -35,7 +47,10 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    star_list = [] #create an empty list to be filled
+    for star in range(0,10):
+        star_list.append("*") #add a star for every number in the range, 10 stars.
+    return star_list
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -45,7 +60,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    hash_list = [] #create an empty list to be filled
+    for hash in range(0,number_of_items):
+        hash_list.append(symbol) #for any number of item, append the specified symbol
+    return hash_list
 
 
 def loops_2():
@@ -66,7 +84,12 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    star_list = []
+    star_field = []
+    for star in range(0,10):
+        star_list.append("*")
+        star_field.append(star_list) # create a row of 10 stars, then a list of 10 rows
+    return star_field
 
 
 def loops_3():
@@ -90,7 +113,14 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    number_list = []
+    number_block = []
+    for i in range(0,10):
+        number_list.append(str(i)) #the list value is a string, must be converted
+        number_list = number_list*10 #repeats the number 10 times (number of items)
+        number_block.append(number_list) #adds the row to the block
+        number_list = [] #resets the row to contain the next number
+    return number_block
 
 
 def loops_4():
@@ -110,7 +140,14 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    number_list = []
+    number_block = []
+    for i in range(0,10):
+        for i in range(0,10):
+            number_list.append(str(i)) #add each number in range(10) in turn, to the number list
+        number_block.append(number_list) #add the resulting number list to the number block
+        number_list = [] #reset the number list for the next iteration to enter the block
+    return number_block
 
 
 def loops_5():
@@ -137,8 +174,24 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
-
+    number_block = []
+    number_row = []
+    j_list = []
+    i_list = []
+    for n in range(10): 
+        i_list.append(n)
+        i_list = i_list*5 #the number of terms in each list must be the same to match coordinates
+        for n in range(5):
+            j_list.append(n) #adds each number in range(5) in turn to make the j coordinate
+        for n in range(5):
+            # (i , j ) is added using strings
+            number_row.append("(i" +str(i_list[n])+ ", " + "j" + str(j_list[n]) + ")") #matching the indexes for each list, label the coordinates in each row
+        number_block.append(number_row) #add the resulting coordinate row to the final block
+        number_row = []
+        i_list = []
+        j_list = [] #reset all list values for the next iteration (block row)
+    return number_block
+        
 
 def loops_6():
     """Make a wedge of numbers.
@@ -160,7 +213,15 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    number_row = []
+    number_block = []
+    i = 0
+    if i < 10: #condition to ensure only 10 rows are created
+        for n in range(i,10):
+            number_row.append(str(n)) #without reseting the list, add a value each time
+            number_block.append(list(number_row)) #add the row containing new values each iteration to make a pyramid
+            i=i+1 #determines the number of rows of the pyramid/ number of values in the final row
+    return number_block
 
 
 def loops_7():
@@ -184,7 +245,16 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    length = 9 #number of total spaces and stars per row
+    blank_row = [" "] * length #create list of spaces, the spaces will be replaced with stars
+    blank_block = [] #create the final block as an empty list (values will be appended)
+    mid = int(length/2) #index notation starts at 0, add integer otherwise value will be a float
+    for n in range(0, mid+1): #must add +1 otherwise final row will not be calculated
+        blank_row[mid] = "*" #the middle is always a star
+        blank_row[mid+n] = "*" #add one star to either side of the last star(s), creating pyramid
+        blank_row[mid-n] = "*"
+        blank_block.append(list(blank_row)) #add the list to the final block
+    return blank_block #remember to return !
 
 
 def lp(some_kind_of_list, exercise_name):

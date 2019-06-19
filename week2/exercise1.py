@@ -10,20 +10,20 @@ import platform
 
 # I think this will print "hello! Let's get started" by calling the print function.
 print("hello! Let's get started")  # it printed "hello! Let's get started"
-
-some_words = ['what', 'does', 'this', 'line', 'do', '?']
-
+#I think this assigns the list of strings into the variable some_words
+some_words = ['what', 'does', 'this', 'line', 'do', '?']#string values were input in order as the list specified
+#prints the values in some_words one by one
 for word in some_words:
-    print(word)
-
+    print(word)# the variable word is assigned each value and printed
+#prints the values in some_words one by one
 for x in some_words:
-    print(x)
-
-print(some_words)
-
+    print(x)# the variable x is assigned each value and printed
+#prints the entire list on one line
+print(some_words)#prints the exact formatting of the value, in square brackets and quotes
+#will print 'some_words contains more than 3 words' as the condition is True
 if len(some_words) > 3:
-    print('some_words contains more than 3 words')
-
+    print('some_words contains more than 3 words')#prints 'some_words' contains more than 3 words
+#prints the system, node, release version, machine and processor of this device
 def usefulFunction():
     """
     You may want to look up what uname does before you guess
@@ -31,5 +31,5 @@ def usefulFunction():
     https://docs.python.org/3/library/platform.html#platform.uname
     """
     print(platform.uname())
-
-usefulFunction()
+#runs the function
+usefulFunction()#prints uname_result containing system, node, release, version, machine, processor.

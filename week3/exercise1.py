@@ -12,7 +12,11 @@ def loop_ranger(start, stop=None, step=1):
     The look up the docs for range(), you can answer this with just the range 
     function, but we'd like you to do it the long way, probably using a loop.
     """
-    return None
+    num_list = []
+    for n in range(start,stop):
+        num_list.append(n)
+        n = n + step
+    return num_list
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +24,8 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return None
+    num_list = list(range(start,stop,step))
+    return num_list
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +34,9 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return None
+    step = 2
+    num_list = list(range(start,stop, step))
+    return num_list
 
 
 def stubborn_asker(low, high):
@@ -40,7 +47,14 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    return None
+    condition = False
+    while condition == False:
+        number_input = int(input('Type a number between ' + str(low) + ' and ' + str(high) + ' :'))
+        if number_input > low and number_input < high:
+            condition = True
+        else: 
+            condition = False
+    return number_input
 
 
 def not_number_rejector(message):
@@ -50,7 +64,15 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    condition = False
+    while condition == False:
+        number_input = input(message)
+        if number_input.isdigit():
+            number_input = int(number_input)
+            condition = True
+        else:
+            condition = False
+    return number_input
 
 
 def super_asker(low, high):
@@ -61,7 +83,14 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+    count = 0
+    while count == 0:
+        number_input = not_number_rejector('Type a number between ' + str(low) + ' and ' + str(high) + ' :')
+        if number_input > low and number_input < high:
+            count = 1
+        else: 
+            count = 0
+    return number_input
 
 
 if __name__ == "__main__":

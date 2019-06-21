@@ -39,11 +39,11 @@ def binary_search(low, high, actual_number):
             guessed = True
         elif guess > actual_number:
             print("Too large ({})".format(guess))
-            upperBound = guess - 1
+            upperBound = guess
             guess = int((lowerBound+upperBound)/2)
         else:
             print("Too small ({})".format(guess))
-            lowerBound = guess + 1
+            lowerBound = guess
             guess = int((lowerBound+upperBound)/2)
 
     return {"guess": guess, "tries": tries}

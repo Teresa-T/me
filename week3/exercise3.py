@@ -29,7 +29,7 @@ def advancedGuessingGame():
         condition = False
         while condition == False:
           number_input = input(message)
-          if number_input.isdigit():
+          if isinstance(number_input, int)==True:
               number_input = int(number_input)
               condition = True
           else:

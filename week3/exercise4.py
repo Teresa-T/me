@@ -29,23 +29,22 @@ def binary_search(low, high, actual_number):
     upperBound = high
 
     guessed = False
-    while not guessed:
-        guess = math.floor((upperBound+lowerBound)/2)
-        while not guessed:
-            if guess == actual_number:
-                tries = tries + 1
-                print("The number was {}".format(actual_number))
-                guessed = True
-            elif guess > actual_number:
-                print("Too large ({})".format(guess))
-                tries = tries + 1
-                upperBound = guess
-                guess = int((lowerBound+upperBound)/2)-1
-            else:
-                print("Too small ({})".format(guess))
-                tries = tries + 1
-                lowerBound = guess
-                guess = int((lowerBound+upperBound)/2)+1
+    
+    
+    while guessed == False:
+        guess = int((lowerBound+upperBound)/2)
+        tries = tries + 1
+        if guess == actual_number:
+            print("The number was {}".format(actual_number))
+            guessed = True
+        elif guess > actual_number:
+            print("Too large ({})".format(guess))
+            upperBound = guess - 1
+            guess = int((lowerBound+upperBound)/2)
+        else:
+            print("Too small ({})".format(guess))
+            lowerBound = guess + 1
+            guess = int((lowerBound+upperBound)/2)
 
     return {"guess": guess, "tries": tries}
 

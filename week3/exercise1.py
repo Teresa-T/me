@@ -13,9 +13,10 @@ def loop_ranger(start, stop=None, step=1):
     function, but we'd like you to do it the long way, probably using a loop.
     """
     num_list = []
-    for n in range(start,stop):
-        num_list.append(n)
-        n = n + step
+    number = start
+    while number < stop:
+        num_list.append(number)
+        number = number + step
     return num_list
 
 
@@ -67,7 +68,7 @@ def not_number_rejector(message):
     condition = False
     while condition == False:
         number_input = input(message)
-        if number_input.isdigit():
+        if isinstance(number_input, int):
             number_input = int(number_input)
             condition = True
         else:

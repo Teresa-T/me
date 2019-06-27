@@ -33,7 +33,6 @@ def binary_search(low, high, actual_number):
     
     while guessed == False:
         guess = int((lowerBound+upperBound)/2)
-        tries = tries + 1
         if guess == actual_number:
             print("The number was {}".format(actual_number))
             guessed = True
@@ -41,10 +40,12 @@ def binary_search(low, high, actual_number):
             print("Too large ({})".format(guess))
             upperBound = guess
             guess = int((lowerBound+upperBound)/2)
+            tries = tries + 1
         else:
             print("Too small ({})".format(guess))
             lowerBound = guess
             guess = int((lowerBound+upperBound)/2)
+            tries = tries + 1
 
     return {"guess": guess, "tries": tries}
 

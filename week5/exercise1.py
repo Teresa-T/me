@@ -49,6 +49,9 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
+    for i in range(start,stop):
+        print(str(message) + " " + str(i))
+    print("Let's go!")
     pass
 
 
@@ -62,18 +65,30 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
+    hypotenuse = base ** 2 + height ** 2
+    return hypotenuse
     pass
 
 
 def calculate_area(base, height):
+    area = 0.5*base*height
+    return area
     pass
 
 
 def calculate_perimeter(base, height):
+    hypotenuse = calculate_hypotenuse(base, height)
+    perimeter = base + height + hypotenuse
+    return perimeter
     pass
 
 
 def calculate_aspect(base, height):
+    if height > base:
+        aspect = "tall"
+    else:
+        aspect = "wide"
+    return aspect
     pass
 
 
@@ -81,13 +96,13 @@ def calculate_aspect(base, height):
 # Don't reinvent the wheel
 def get_triangle_facts(base, height, units="mm"):
     return {
-        "area": None,
-        "perimeter": None,
-        "height": None,
-        "base": None,
-        "hypotenuse": None,
-        "aspect": None,
-        "units": None,
+        "area": calculate_area(base, height),
+        "perimeter": calculate_perimeter(base, height),
+        "height": height,
+        "base": base,
+        "hypotenuse": calculate_hypotenuse(base, height),
+        "aspect": calculate_aspect(base, height),
+        "units": units,
     }
 
 
@@ -156,7 +171,7 @@ def wordy_pyramid(api_key):
     import requests
 
     baseURL = (
-        "http://api.wordnik.com/v4/words.json/randomWords?"
+        "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=4"
         "api_key={api_key}"
         "&minLength={length}"
         "&maxLength={length}"

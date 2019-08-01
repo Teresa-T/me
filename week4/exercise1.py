@@ -79,7 +79,45 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+
+    min = 3
+    max = 20
+    centre = (max/2)-2
+    word_pyramid = []
+    finished = False
+    while finished == False:
+        if len(word_pyramid)< int(centre):
+            for i in range(min, max, 2):
+                temp_max = i
+                word_gen = ("https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(str(temp_max)))
+                r = requests.get(word_gen)
+                if r.status_code is 200:
+                    the_json = json.loads(r.text)
+                    word = the_json[0]["word"]
+                    word_pyramid.append(word)
+                else:
+                    i = i - 2
+        elif len(word_pyramid) == int(centre):
+            temp_max = max
+            word_gen = ("https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(str(temp_max)))
+            r = requests.get(word_gen)
+            if r.status_code is 200:
+                the_json = json.loads(r.text)
+                word = the_json[0]["word"]
+                word_pyramid.append(word)     
+        else:
+            for i in range(max, min, -2):
+                    temp_max = i
+                    word_gen = ("https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(str(temp_max)))
+                    r = requests.get(word_gen)
+                    if r.status_code is 200:
+                        the_json = json.loads(r.text)
+                        word = the_json[0]["word"]
+                        word_pyramid.append(word)
+                    else:
+                        i = i + 2
+            finished = True     
+    return word_pyramid
 
 
 def wunderground():
@@ -93,8 +131,8 @@ def wunderground():
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    base = "http://api.wunderground.com/api/"
-    api_key = "YOUR KEY - REGISTER TO GET ONE"
+    base = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=4"
+    api_key = "6d8bfe0fe9a24d7f8bfe0fe9a2ad7fec"
     country = "AU"
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"

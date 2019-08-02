@@ -99,10 +99,16 @@ def best_letter_for_pets():
     TIP: return just a letter, not the list of animals.
     """
     import string
-
+    best_list = []
+    new_list = []
     the_alphabet = string.ascii_lowercase
-
-    return ""
+    for i in the_alphabet:
+        new_list = []
+        new_list = pet_filter(i)
+        if len(new_list) > len(best_list):
+            best_list=new_list
+            best_letter = i
+    return best_letter
 
 
 def make_filler_text_dictionary():

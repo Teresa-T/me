@@ -69,7 +69,7 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: consider using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-
+    
     return ""
 
 
@@ -86,8 +86,11 @@ def pet_filter(letter="a"):
             "siamese fighting fish","fancy rat and lab rat","mink","red fox",
             "hedgehog","guppy",]
     # fmt: on
-
-    return []
+    filter = []
+    for pet in pets:
+        if letter in pet:
+            filter.append(pet)
+    return filter
 
 
 def best_letter_for_pets():

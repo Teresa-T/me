@@ -51,7 +51,7 @@ def do_bunch_of_bad_things():
 def countdown(message, start, stop, completion_message):
     for i in range(start,stop):
         print(str(message) + " " + str(i))
-    print("Let's go!")
+    print(str(completion_message))
     pass
 
 

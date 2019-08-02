@@ -27,7 +27,10 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     TIP: the test will use a different input_list, so don't just return 5
     """
     count = 0
-
+    max = len(input_list)
+    for i in range(0,max):
+        if input_list[i] == 3:
+            count = count + 1
     return count
 
 

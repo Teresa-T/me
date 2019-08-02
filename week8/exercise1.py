@@ -161,8 +161,21 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-
-    return ""
+    word_count = 0
+    paragraph = ""
+    wordList = make_filler_text_dictionary()
+    while word_count < number_of_words:
+        randIndex = random.randint(3,7)
+        word_group = wordList.get(randIndex, None)
+        randIndex = random.randint(0, len(word_group) - 1)
+        word = word_group[randIndex]
+        if word_count==0:
+            paragraph = word
+            word_count += 1
+        else:
+            paragraph = paragraph + " " + word
+            word_count += 1
+    return paragraph
 
 
 def fast_filler(number_of_words=200):

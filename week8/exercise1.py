@@ -137,8 +137,17 @@ def make_filler_text_dictionary():
     """
 
     import requests
-
-    return {}
+    filler_dict = {}
+    words = []
+    for i in range(3,8):
+        url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}".format(i)   
+        words = []
+        for index in range(3):    
+            r = requests.get(url)
+            word = r.text
+            words.append(word)
+        filler_dict[i]= words
+    return filler_dict
 
 
 def random_filler_text(number_of_words=200):

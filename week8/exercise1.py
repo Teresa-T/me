@@ -47,7 +47,15 @@ def fizz_buzz():
     """
     fizzBuzzList = []
     # your code here
-
+    for i in range(1,101):
+        if (i % 3 == 0) and (i % 5 == 0):
+            fizzBuzzList.append("FizzBuzz")
+        elif i % 3 == 0:
+            fizzBuzzList.append("Fizz")
+        elif i % 5 ==0:
+            fizzBuzzList.append("Buzz")
+        else:
+            fizzBuzzList.append(i)
     return fizzBuzzList
 
 

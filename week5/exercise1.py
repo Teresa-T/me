@@ -158,11 +158,11 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     if return_diagram and return_dictionary:
-        return None
+        return {None}
     elif return_diagram:
-        return None
+        return {None}
     elif return_dictionary:
-        return None
+        return {None}
     else:
         print("You're an odd one, you don't want anything!")
 
